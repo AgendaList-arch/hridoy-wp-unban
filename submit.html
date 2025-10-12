@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Submited - WhatsApp Unban Live Service</title>
+  <style>
+    :root {
+      --bg: #FBF1FF;
+      --card: #ffffff;
+      --accent: #683AB7;
+      --danger: #d93025;
+      --radius: 7px;
+      --maxw: 780px;
+      font-family: "Roboto", system-ui, -apple-system, "Segoe UI", "Noto Sans", Arial;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #222;
+      font-size: 1em;
+      line-height: 1.35;
+      padding: 20px;
+      display: block;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+    }
+    
+    /* header */
+    .hdr {
+      color: black;
+      border-radius: var(--radius);
+      background: var(--card);
+      overflow: hidden;
+    }
+    
+    .hdr-border {
+      height: 10px;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      background: var(--accent);
+    }
+    
+    .hdr-top {
+      margin: 0;
+      padding: 0 20px;
+    }
+    
+    .hdr-middle {
+      margin: 0;
+      color: #666;
+      padding: 0 20px;
+    }
+    
+    .hdr-bottom {
+      margin: 0;
+      padding: 0 20px;
+    }
+    
+    .form-footer {
+      text-align: center;
+      color: #666;
+      font-size: 0.7em;
+      margin: 20px 0 40px;
+    }
+    
+    .form-footer a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    
+    footer .googleforms {
+      color: #888;
+      font-size: 2.1em;
+      font-weight: 500;
+    }
+    
+    footer .google {
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="container">
+      
+      <!-- Header (like Google Forms header) -->
+      <header class="hdr">
+        <div class="hdr-border"></div>
+        <div class="hdr-top">
+          <h1>You've already responded</h1>
+        </div>
+        
+        <div class="hdr-middle">
+          <p class="hdr-p">
+            You can fill out this form only once.
+          </p>
+        </div>
+        
+        <div class="hdr-bottom">
+          <p class="hdr-p">
+            Try contacting the owner of the form if you think this is a mistake.
+          </p>
+        </div>
+      </header>
+      
+      <footer class="form-footer">
+        <p class="small">This form was created by Hridoy Pran Borah. <a href="#">Report Abuse</a></p>
+        <p class="googleforms"><span class="google">Google</span> Forms</p>
+      </footer>
+    </div>
+  </main>
+</body>
+
+</html>

