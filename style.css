@@ -399,8 +399,8 @@ footer .google {
 
 .circle-exclam {
   display: inline-block;
-  width: 20px;      /* size of circle */
-  height: 20px;
+  width: 24px;      /* size of circle */
+  height: 24px;
   border: 1.8px solid var(--danger); /* circle border */
   border-radius: 50%;      /* makes it circular */
   text-align: center;
