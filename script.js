@@ -165,26 +165,41 @@ document.addEventListener('DOMContentLoaded', () => {
     return ok;
   }
   
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     if (!validate()) return;
     
     const file = fields.paymentScreenshot.files[0];
-    const data = {
-      name: fields.name.value.trim(),
-      banNumber: fields.banNumber.value.trim(),
-      country: fields.country.value,
-      deviceType: fields.deviceType.value.trim(),
-      contactNumber: fields.contactNumber.value.trim(),
-      paymentMethod: fields.paymentMethod.value,
-      paymentFileName: file.name
-    };
     
-    console.log('Form data:', data);
+    // Build FormData for Formspree
+    const formData = new FormData();
+    formData.append('name', fields.name.value.trim());
+    formData.append('banNumber', fields.banNumber.value.trim());
+    formData.append('country', fields.country.value);
+    formData.append('deviceType', fields.deviceType.value.trim());
+    formData.append('contactNumber', fields.contactNumber.value.trim());
+    formData.append('paymentMethod', fields.paymentMethod.value);
     
-    // Redirect after submission
-    if (confirm('You sure want to submit?')) {
-      window.location.href = 'submit.html';
+    // ✅ Only send the file name, not the actual file
+    if (file) formData.append('paymentScreenshot', file.name);
+    
+    if (confirm('You sure want to submit this form?')) {
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        
+        if (response.ok) {
+          window.location.href = 'submit.html';
+        } else {
+          alert('❌ Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('❌ Error submitting form.');
+      }
     }
   });
 });
